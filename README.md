@@ -1,4 +1,6 @@
-# DevStore
+# DevBOT
+[Discord link](https://discord.gg/Esh6vygBwT)<br>
+[Site](https://discord.gg/Esh6vygBwT)
 
 # Creators
 RyanWolfDev<br>
