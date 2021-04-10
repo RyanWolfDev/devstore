@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+</head>
+<body class="container">
+    <header>
+        <%- include('../partials/plugins/header'); %>
+    </header>
+    <main>
+        <div class="jumbotron">
+            <h1><%= username %></h1><h2>Comandos</h2>
+            <p>Selecione os comandos que ficarão ativos no seu bot.</p>
+            <form id="plugins-form" method="POST" action="/plugins">
+                <h4>Moderação:</h4><hr>
+                <label for="ban">Ban:</label>
+                <select id="ban" name="ban">
+                  <option id="ban-true" value="true">Enabled</option>
+                  <option id="ban-false" value="false">Disabled</option>
+                </select><br><hr>
+                <label for="kick">Kick:</label>
+                <select id="kick" name="kick">
+                  <option id="kick-true" value="true">Enabled</option>
+                  <option id="kick-false" value="false">Disabled</option>
+                </select><br><hr>
+                <label for="clear">Clear:</label>
+                <select id="clear" name="clear">
+                  <option id="clear-true" value="true">Enabled</option>
+                  <option id="clear-false" value="false">Disabled</option>
+                </select><hr>
+                <h4>Utilidades:</h4>
+                <label for="userinfo">User Info:</label>
+                <select id="userinfo" name="userinfo">
+                  <option id="userinfo-true" value="true">Enabled</option>
+                  <option id="userinfo-false" value="false">Disabled</option>
+                </select><br><hr>
+                <label for="serverinfo">Server Info:</label>
+                <select id="serverinfo" name="serverinfo">
+                  <option id="serverinfo-true" value="true">Enabled</option>
+                  <option id="serverinfo-false" value="false">Disabled</option>
+                </select><br><hr>
+                <label for="stats">Stats:</label>
+                <select id="stats" name="stats">
+                  <option id="stats-true" value="true">Enabled</option>
+                  <option id="stats-false" value="false">Disabled</option>
+                </select><br><hr>
+                <label for="help">Help:</label>
+                <select id="help" name="help">
+                  <option id="help-true" value="true">Enabled</option>
+                  <option id="help-false" value="false">Disabled</option>
+                </select><hr>
+                <h4>Diversão:</h4><hr>
+                <label for="coin">Coin Flip:</label>
+                <select id="coin" name="coin">
+                  <option id="coin-true" value="true">Enabled</option>
+                  <option id="coin-false" value="false">Disabled</option>
+                </select><br><hr>
+                <label for="dog">Dog:</label>
+                <select id="dog" name="dog">
+                  <option id="dog-true" value="true">Enabled</option>
+                  <option id="dog-false" value="false">Disabled</option>
+                </select><br><hr>
+                <label for="cat">Cat:</label>
+                <select id="cat" name="cat">
+                  <option id="cat-true" value="true">Enabled</option>
+                  <option id="cat-false" value="false">Disabled</option>
+                </select><br><hr>
+                <label for="ball">8-Ball:</label>
+                <select id="ball" name="ball">
+                  <option id="ball-true" value="true">Enabled</option>
+                  <option id="ball-false" value="false">Disabled</option>
+                </select><br><hr>
+                <label for="roll">Roll:</label>
+                <select id="roll" name="roll">
+                  <option id="roll-true" value="true">Enabled</option>
+                  <option id="roll-false" value="false">Disabled</option>
+                </select>
+                </br><hr>
+                <input type="submit" value="Salvar">
+              </form>
+            </br>
+            <h2>Lista de comandos</h2>
+            <h4>Moderação:</h4>
+            <ul>
+                <li><strong>Ban</strong> - Bane um usuário do servidor. <br><strong>Use: </strong><%= config.prefix %>ban @usuario</li><hr>
+                <li><strong>Kick</strong> - Expulsa um usuário do servidor. <br><strong>Use: </strong><%= config.prefix %>kick @usuario</li><hr>
+                <li><strong>Clear</strong> - Deleta mensagens do canal. <br><strong>Use: </strong><%= config.prefix %>clear (numero)</li>
+            </ul>
+            <h4>Utilidades:</h4>
+            <ul>
+                <li><strong>User Info</strong> - Envia informações básicas de um usuário. <br><strong>Use: </strong><%= config.prefix %>userinfo @usuario</li><hr>
+                <li><strong>Server Info</strong> - Envia informações básicas de um servidor. <br><strong>Use: </strong><%= config.prefix %>serverinfo</li>
+                <hr><li><strong>Stats</strong> - Estatísticas do bot. <br><strong>Use: </strong><%= config.prefix %>stats</li><hr>
+                <li><strong>Help</strong> - Envia lista de comandos ativos no painel. <br><strong>Use: </strong><%= config.prefix %>help</li>
+            </ul>
+            <!--<h4>Diversão:</h4>
+            <ul>
+                <li><strong>Coin Flip</strong> - Flip a coin (heads / tails). <strong>Usage: </strong><%= config.prefix %>coin</li>
+                <li><strong>Dog</strong> - Sends a random image of a dog. <strong>Usage: </strong><%= config.prefix %>dog</li>
+                <li><strong>Cat</strong> - Sends a random image of a cat. <strong>Usage: </strong><%= config.prefix %>cat</li>
+                <li><strong>8-Ball</strong> - Ask the 8-ball a question. <strong>Usage: </strong><%= config.prefix %>8-ball</li>
+                <li><strong>Roll</strong> - Roles a dice (6-Sided). <strong>Usage: </strong><%= config.prefix %>roll</li>
+            </ul>-->
+        </div>
+    </main>
+    <script>
+        function sel() {
+          document.getElementById("ban-"+<%= plugins.ban %>).selected = "true";
+          document.getElementById("kick-"+<%= plugins.kick %>).selected = "true";
+          document.getElementById("clear-"+<%= plugins.clear %>).selected = "true";
+
+          document.getElementById("userinfo-"+<%= plugins.userinfo %>).selected = "true";
+          document.getElementById("serverinfo-"+<%= plugins.info %>).selected = "true";
+          document.getElementById("stats-"+<%= plugins.stats %>).selected = "true";
+          document.getElementById("help-"+<%= plugins.help %>).selected = "true";
+
+          document.getElementById("coin-"+<%= plugins.coin %>).selected = "true";
+          document.getElementById("dog-"+<%= plugins.dog %>).selected = "true";
+          document.getElementById("cat-"+<%= plugins.cat %>).selected = "true";
+          document.getElementById("ball-"+<%= plugins.ball %>).selected = "true";
+          document.getElementById("roll-"+<%= plugins.roll %>).selected = "true";
+        }
+        sel()
+        </script>
+        <script src="js/darkmode.js"></script>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>

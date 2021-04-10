@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../partials/settings/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Configurações</h1>
+            <p>Use usas próprias configurações no painel.<br> (<strong>*</strong> = significa que terá que solicitar o reiniciamento do bot!)</p>
+            <form id="settings-form" method="POST" action="/settings">
+                <label for="prefix">* Prefixo:</label><br>
+                <input type="text" id="prefix" name="prefix" value=<%= prefix %>><br><hr>
+                <label for="prefix">* Token:</label><br>
+                <p><em>Para alterar a token da sua aplicação terá que contatar o suporte.</em></p>
+                <br>
+                <input type="submit" value="Salvar">
+              </form> 
+        </div>
+    </main>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+<script>
+    const options = {
+        bottom: '64px', // default: '32px'
+        right: '32px', // default: '32px'
+        time: '0.5s', // default: '0.3s'
+        backgroundColor: '#fff',  // default: '#fff'
+        buttonColorDark: '#100f2c',  // default: '#100f2c'
+        buttonColorLight: '#fff', // default: '#fff'
+        saveInCookies: true, // default: true,
+        label: '🌓', // default: ''
+        autoMatchOsTheme: true // default: true
+      }
+      
+      const darkmode = new Darkmode(options);
+      darkmode.showWidget();
+</script>
+</body>
+</html>

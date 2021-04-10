@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <%- include('../partials/head'); %>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <style>
+        .alert {
+          padding: 20px;
+          background-color: #f44336;
+          color: white;
+          display: <%= update %>;
+        }
+        
+        .closebtn {
+          margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        
+        .closebtn:hover {
+          color: black;
+        }
+        </style>
+</head>
+<body class="container">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>Update!</strong> An update is avaliable please download the latest version!
+      </div>
+    <header>
+        <%- include('../partials/index/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1><%= username %></h1><h2 class="testaa">Dashboard</h2>
+            <p>Bem vindo ao DashBot, o painel de controle para bots Discord.</p>
+            <ul>
+                <% info.forEach(function(info) { %>
+                    <li>
+                        <strong><%= info.name %></strong>
+                        - <%= info.desc %>
+                    </li>
+                <% }); %>
+            </ul>
+            <img src=<%= av %>>
+        </div>
+    </main>
+    <script src="js/darkmode.js"></script>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>
