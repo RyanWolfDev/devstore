@@ -1,11 +1,11 @@
 # DevStore
 
 # Creators
-RyanWolfDev
+RyanWolfDev<br>
 Cafezin
 
 # Developers
-LachlanDev
+[LachlanDev](https://github.com/LachlanDev) - Panel
 
 # Version
 1.0
